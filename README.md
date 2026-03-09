@@ -29,7 +29,7 @@ Set the following environment variables before running:
 ```bash
 export EMAIL_PASSWORD="your-gmail-app-password"
 export API_KEY_ENABLED=true
-export EMAIL_SERVICE_API_KEY="your-secret-api-key"
+export EMAIL_SERVICE_API_KEY="email-svc-dev-key-9f3c2b7a"
 ```
 
 > Use a Gmail **App Password** (not your normal Gmail account password).
@@ -81,7 +81,7 @@ Run container:
 docker run --rm -p 8080:8080 \
   -e EMAIL_PASSWORD="your-gmail-app-password" \
   -e API_KEY_ENABLED=true \
-  -e EMAIL_SERVICE_API_KEY="your-secret-api-key" \
+  -e EMAIL_SERVICE_API_KEY="email-svc-dev-key-9f3c2b7a" \
   email-microservice:latest
 ```
 
@@ -104,14 +104,14 @@ Email service is running
 Headers:
 
 - `Content-Type: application/json`
-- `X-API-KEY: your-secret-api-key` (only when API key protection is enabled)
+- `X-API-KEY: email-svc-dev-key-9f3c2b7a` (only when API key protection is enabled)
 
 Sample cURL:
 
 ```bash
 curl -X POST "http://localhost:8080/api/v1/email/order-confirmation" \
   -H "Content-Type: application/json" \
-  -H "X-API-KEY: your-secret-api-key" \
+  -H "X-API-KEY: email-svc-dev-key-9f3c2b7a" \
   -d '{
     "email": "customer@email.com",
     "customerName": "John Doe",
