@@ -41,6 +41,24 @@ The application SMTP config is in `src/main/resources/application.yml`:
 - `spring.mail.username=harshgour8909@gmail.com`
 - `spring.mail.password=${EMAIL_PASSWORD}`
 
+
+### Optional: use a `.env` file
+
+A ready-to-edit `.env` file is included at project root with all required variables:
+
+- `EMAIL_PASSWORD`
+- `API_KEY_ENABLED`
+- `EMAIL_SERVICE_API_KEY`
+
+If your shell supports it, load it before running:
+
+```bash
+set -a
+source .env
+set +a
+./mvnw spring-boot:run
+```
+
 ## Run Locally
 
 ```bash
