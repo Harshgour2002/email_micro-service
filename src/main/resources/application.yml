@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: email-micro-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: harshgour8909@gmail.com
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8080
+
+email:
+  from: harshgour8909@gmail.com
+  retry:
+    max-attempts: 3
+    delay-ms: 2000
+
+security:
+  api-key:
+    enabled: ${API_KEY_ENABLED:false}
+    value: ${EMAIL_SERVICE_API_KEY:}
+
+logging:
+  level:
+    com.example.email_micro_service: INFO

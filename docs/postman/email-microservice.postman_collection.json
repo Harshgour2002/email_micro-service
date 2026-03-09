@@ -1,0 +1,56 @@
+{
+  "info": {
+    "name": "Email Microservice",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/email/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "email", "health"]
+        }
+      }
+    },
+    {
+      "name": "Send Order Confirmation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{apiKey}}",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"customer@email.com\",\n  \"customerName\": \"John Doe\",\n  \"orderId\": \"ORD12345\",\n  \"orderAmount\": 799.00,\n  \"paymentMethod\": \"UPI\",\n  \"orderDate\": \"2026-03-09\",\n  \"items\": [\n    {\n      \"name\": \"Product 1\",\n      \"quantity\": 1,\n      \"price\": 499\n    },\n    {\n      \"name\": \"Product 2\",\n      \"quantity\": 1,\n      \"price\": 300\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/email/order-confirmation",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "email", "order-confirmation"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "apiKey",
+      "value": "your-secret-api-key"
+    }
+  ]
+}
