@@ -12,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Slf4j
 @Service
@@ -25,10 +25,11 @@ public class EmailServiceImpl implements EmailService {
     private final EmailProperties emailProperties;
 
     @Override
-    @Async
     public void sendOrderConfirmationEmail(OrderConfirmationEmailRequest request) {
         int maxAttempts = emailProperties.getRetry().getMaxAttempts();
         long delayMs = emailProperties.getRetry().getDelayMs();
+
+        validateEmailConfiguration();
 
         for (int attempt = 1; attempt <= maxAttempts; attempt++) {
             try {
@@ -47,6 +48,12 @@ public class EmailServiceImpl implements EmailService {
 
                 sleep(delayMs);
             }
+        }
+    }
+
+    private void validateEmailConfiguration() {
+        if (!StringUtils.hasText(emailProperties.getFrom())) {
+            throw new EmailSendingException("Email sender address is not configured. Set 'email.from' or EMAIL_FROM.");
         }
     }
 

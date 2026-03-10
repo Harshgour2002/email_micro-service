@@ -5,7 +5,7 @@ Production-ready Java 21 + Spring Boot 3.x email microservice for e-commerce ord
 ## Features
 
 - Layered architecture (`controller`, `service`, `service.impl`, `dto`, `config`, `exception`, `template`, `util`)
-- Asynchronous email dispatch with retry
+- Email dispatch with retry and delivery-aware API response
 - Standardized API response wrapper
 - Global exception handling
 - Optional API key security (`X-API-KEY`)
@@ -28,6 +28,8 @@ Set the following environment variables before running:
 
 ```bash
 export EMAIL_PASSWORD="your-gmail-app-password"
+export EMAIL_USERNAME="your-sender@gmail.com"
+export EMAIL_FROM="your-sender@gmail.com"
 export API_KEY_ENABLED=true
 export EMAIL_SERVICE_API_KEY="email-svc-dev-key-9f3c2b7a"
 ```
@@ -38,8 +40,9 @@ The application SMTP config is in `src/main/resources/application.yml`:
 
 - `spring.mail.host=smtp.gmail.com`
 - `spring.mail.port=587`
-- `spring.mail.username=harshgour8909@gmail.com`
+- `spring.mail.username=${EMAIL_USERNAME}`
 - `spring.mail.password=${EMAIL_PASSWORD}`
+- `email.from=${EMAIL_FROM:${EMAIL_USERNAME}}`
 
 
 ### Optional: use a `.env` file
@@ -47,6 +50,8 @@ The application SMTP config is in `src/main/resources/application.yml`:
 A ready-to-edit `.env` file is included at project root with all required variables:
 
 - `EMAIL_PASSWORD`
+- `EMAIL_USERNAME`
+- `EMAIL_FROM`
 - `API_KEY_ENABLED`
 - `EMAIL_SERVICE_API_KEY`
 
@@ -80,6 +85,8 @@ Run container:
 ```bash
 docker run --rm -p 8080:8080 \
   -e EMAIL_PASSWORD="your-gmail-app-password" \
+  -e EMAIL_USERNAME="your-sender@gmail.com" \
+  -e EMAIL_FROM="your-sender@gmail.com" \
   -e API_KEY_ENABLED=true \
   -e EMAIL_SERVICE_API_KEY="email-svc-dev-key-9f3c2b7a" \
   email-microservice:latest
@@ -206,5 +213,5 @@ Expected success response:
 ### Notes
 
 - Gmail SMTP needs `EMAIL_PASSWORD` to be a **Gmail App Password**.
-- Because email sending is async, the API can return success quickly while dispatch runs in background.
-- Check service logs for send attempts/retries/failures.
+- API now returns success only after SMTP dispatch succeeds.
+- Check service logs for send attempts/retries/failures if delivery fails.

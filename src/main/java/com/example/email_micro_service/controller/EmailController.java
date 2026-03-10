@@ -26,7 +26,7 @@ public class EmailController {
     public ResponseEntity<ApiResponse<Void>> sendOrderConfirmation(@Valid @RequestBody OrderConfirmationEmailRequest request) {
         log.info("Received order confirmation email request. orderId={}, email={}", request.getOrderId(), request.getEmail());
         emailService.sendOrderConfirmationEmail(request);
-        return ResponseEntity.accepted().body(ResponseUtil.success("Email sent successfully", null));
+        return ResponseEntity.ok(ResponseUtil.success("Email sent successfully", null));
     }
 
     @GetMapping("/health")
