@@ -1,0 +1,59 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.example:email-micro-service >-------------------
+[INFO] Building email-micro-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ email-micro-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ email-micro-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ email-micro-service ---
+[INFO] skip non existing resourceDirectory C:\Users\harsh\Downloads\email_micro-service\email_micro-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ email-micro-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ email-micro-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.email_micro_service.EmailMicroServiceApplicationTests
+22:57:13.043 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.email_micro_service.EmailMicroServiceApplicationTests]: EmailMicroServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:57:13.185 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.email_micro_service.EmailMicroServiceApplication for test class com.example.email_micro_service.EmailMicroServiceApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-03-09T22:57:13.841+05:30  INFO 10632 --- [email-micro-service] [           main] c.e.e.EmailMicroServiceApplicationTests  : Starting EmailMicroServiceApplicationTests using Java 17.0.12 with PID 10632 (started by harsh in C:\Users\harsh\Downloads\email_micro-service\email_micro-service)
+2026-03-09T22:57:13.841+05:30  INFO 10632 --- [email-micro-service] [           main] c.e.e.EmailMicroServiceApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-03-09T22:57:16.003+05:30  INFO 10632 --- [email-micro-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-03-09T22:57:16.067+05:30  INFO 10632 --- [email-micro-service] [           main] c.e.e.EmailMicroServiceApplicationTests  : Started EmailMicroServiceApplicationTests in 2.683 seconds (process running for 3.895)
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.357 s -- in com.example.email_micro_service.EmailMicroServiceApplicationTests
+[INFO] Running com.example.email_micro_service.OrderConfirmationTemplateBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s -- in com.example.email_micro_service.OrderConfirmationTemplateBuilderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.664 s
+[INFO] Finished at: 2026-03-09T22:57:17+05:30
+[INFO] ------------------------------------------------------------------------

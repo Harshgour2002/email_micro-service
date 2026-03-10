@@ -1,6 +1,7 @@
 spring:
   application:
     name: email-micro-service
+
   mail:
     host: smtp.gmail.com
     port: 587
@@ -23,9 +24,8 @@ email:
     delay-ms: 2000
 
 security:
-  api-key:
-    enabled: ${API_KEY_ENABLED:false}
-    value: ${EMAIL_SERVICE_API_KEY:}
+  enabled: true
+  api-key: email-svc-dev-key-9f3c2b7a
 
 logging:
   level:

@@ -18,9 +18,12 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ApiKeyFilter extends OncePerRequestFilter {
 
-    private static final String API_KEY_HEADER = "X-API-KEY";
-
     private final ApiKeyProperties apiKeyProperties;
+
+    
+
+
+    private static final String API_KEY_HEADER = "X-API-KEY";
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
